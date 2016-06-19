@@ -34,6 +34,8 @@ public class Janela_Principal extends javax.swing.JFrame {
     public static int qtdLinha;
     
     public static String[] palavras;
+    
+    public File dir;
 
     /**
      * Creates new form Janela_Principal
@@ -51,19 +53,33 @@ public class Janela_Principal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,mensagem,titulo,JOptionPane.WARNING_MESSAGE);
     }
     
-    public void arquivos(String letra, String arquivo) throws FileNotFoundException, IOException{
+    public void arquivos(String arquivo) throws FileNotFoundException, IOException{
         
-    File dir = new File(letra+":\\MARION");
+    String unidades_possiveis[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    
+    dir = new File(letra+":\\MARION");
     
     if(!dir.exists()){
-        mostraMensagem("A pasta MARION nao existe na unidade "+letra+":", "Aviso");
-        //String letras_possiveis[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+            for(int i=0; i < unidades_possiveis.length; i++){
+                letra = unidades_possiveis[i];
+                dir = new File(letra+":\\MARION");
+            if(!dir.exists()){
+                //mostraMensagem("O diretório Marion não existe na unidade "+letra+":", arquivo);
+            }
+            if(dir.exists()){
+            i = unidades_possiveis.length;
+            }
+            if(letra.equals("Z")){
+                mostraMensagem("O diretório Marion não existe em lugar nenhum.","Aviso");
+        }
     }
+}
     
     File arq = new File(dir,arquivo+".txt");
     
     if(!arq.exists()){
-        mostraMensagem("O arquivo "+arquivo+" não existe.", "Aviso");
+        mostraMensagem("O arquivo "+arquivo+" não existe na unidade "+letra, "Aviso");
+        System.exit(0);
     }
     
     //==========================================================================
@@ -105,8 +121,6 @@ public class Janela_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TEXTO_UNIDADE = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         TEXTO_ARQUIVO = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -114,8 +128,6 @@ public class Janela_Principal extends javax.swing.JFrame {
         BOTAO_START = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Unidade");
 
         jLabel2.setText("Arquivo");
 
@@ -135,7 +147,7 @@ public class Janela_Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
+                        .addGap(99, 99, 99)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -144,11 +156,7 @@ public class Janela_Principal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TEXTO_ARQUIVO, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TEXTO_UNIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(TEXTO_ARQUIVO, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(BOTAO_START)))
@@ -157,11 +165,7 @@ public class Janela_Principal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TEXTO_UNIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(106, 106, 106)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TEXTO_ARQUIVO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -185,13 +189,11 @@ public class Janela_Principal extends javax.swing.JFrame {
         
         for(int k =0; k < repeticoes; k++){//FOR
         
-        letra = TEXTO_UNIDADE.getText();
-        
         arquivo = TEXTO_ARQUIVO.getText();
         
         /////////////
         try {
-            arquivos(letra, arquivo);
+            arquivos(arquivo);
         } catch (IOException ex) {
             Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -279,8 +281,6 @@ public class Janela_Principal extends javax.swing.JFrame {
     private javax.swing.JButton BOTAO_START;
     private javax.swing.JTextField TEXTO_ARQUIVO;
     private javax.swing.JTextField TEXTO_REPETIR;
-    private javax.swing.JTextField TEXTO_UNIDADE;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
