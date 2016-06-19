@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,10 +47,24 @@ public class Janela_Principal extends javax.swing.JFrame {
         initComponents();
     }
     
+    public void mostraMensagem(String mensagem, String titulo){
+        JOptionPane.showMessageDialog(null,mensagem,titulo,JOptionPane.WARNING_MESSAGE);
+    }
+    
     public void arquivos(String letra, String arquivo) throws FileNotFoundException, IOException{
         
     File dir = new File(letra+":\\MARION");
+    
+    if(!dir.exists()){
+        mostraMensagem("A pasta MARION nao existe na unidade "+letra+":", "Aviso");
+        //String letras_possiveis[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    }
+    
     File arq = new File(dir,arquivo+".txt");
+    
+    if(!arq.exists()){
+        mostraMensagem("O arquivo "+arquivo+" não existe.", "Aviso");
+    }
     
     //==========================================================================
     //CONTA A QUANTIDADE DE LINHAS DO ARQUIVO TXT

@@ -67,21 +67,26 @@ public void Uma_Frase(String p1) throws AWTException{
     if((p1.equals("direita"))){
         Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_RIGHT);
+        bot.keyRelease(KeyEvent.VK_RIGHT);
     }
     else
     if((p1.equals("esquerda"))){
         Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_LEFT);
+        bot.keyRelease(KeyEvent.VK_LEFT);
     }
     else
     if((p1.equals("cima"))){
         Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_UP);
+        bot.keyRelease(KeyEvent.VK_UP);
+        bot.delay(1000);
     }
     else
     if((p1.equals("baixo"))){
         Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_DOWN);
+        bot.keyRelease(KeyEvent.VK_DOWN);
     }
     else
     if((p1.equals("exclamacao"))){
@@ -180,6 +185,7 @@ public void Uma_Frase(String p1) throws AWTException{
         Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_WINDOWS);
         bot.keyRelease(KeyEvent.VK_WINDOWS);
+        bot.delay(1000);
     }
     else
     if((p1.equals("backspace"))){
