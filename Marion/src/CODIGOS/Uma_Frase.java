@@ -165,6 +165,10 @@ public void Uma_Frase(String p1) throws AWTException{
         programa(p1); 
     }
     else
+    if((p1.equals("chrome"))){
+        programa(p1); 
+    }
+    else
     if((p1.equals("control"))){
         programa(p1); 
     }

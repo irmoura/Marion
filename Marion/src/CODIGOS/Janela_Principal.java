@@ -27,6 +27,7 @@ public class Janela_Principal extends javax.swing.JFrame {
     public Tres_Frases f3;
     
     public String letra;
+    public String pasta_do_programa = "Marion";
     public static String frase;
     public static String frase_completa;
     public static String arquivo;
@@ -57,27 +58,27 @@ public class Janela_Principal extends javax.swing.JFrame {
         
     String unidades_possiveis[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
     
-    dir = new File(letra+":\\MARION");
+    dir = new File(letra+":\\"+pasta_do_programa);
     
     if(!dir.exists()){
             for(int i=0; i < unidades_possiveis.length; i++){
                 letra = unidades_possiveis[i];
-                dir = new File(letra+":\\MARION");
+                dir = new File(letra+":\\"+pasta_do_programa);
             if(!dir.exists()){
-                //mostraMensagem("O diretório Marion não existe na unidade "+letra+":", arquivo);
+                //mostraMensagem("O diretório "+pasta_do_programa+" não existe na unidade "+letra+":", arquivo);
             }
             if(dir.exists()){
             i = unidades_possiveis.length;
             }
             if(letra.equals("Z")){
-                mostraMensagem("O diretório Marion não existe em lugar nenhum.","Aviso");
+                mostraMensagem("O diretório "+pasta_do_programa+" não existe em lugar nenhum.","Aviso");
         }
     }
 }
     
     File arq = new File(dir,arquivo+".txt");
     
-    if(!arq.exists()){
+    if(!arq.exists() && !arquivo.equals("")){
         mostraMensagem("O arquivo "+arquivo+" não existe na unidade "+letra, "Aviso");
         System.exit(0);
     }
@@ -128,10 +129,15 @@ public class Janela_Principal extends javax.swing.JFrame {
         BOTAO_START = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Marion - By Ismael Ribeiro");
 
         jLabel2.setText("Arquivo");
 
+        TEXTO_ARQUIVO.setToolTipText("Digite o nome do arquivo a ser executado");
+
         jLabel3.setText("Repetir");
+
+        TEXTO_REPETIR.setToolTipText("Digite quantas vezes o programa deve repetir a ação");
 
         BOTAO_START.setText("Start");
         BOTAO_START.addActionListener(new java.awt.event.ActionListener() {
@@ -145,37 +151,34 @@ public class Janela_Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TEXTO_REPETIR, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TEXTO_ARQUIVO, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TEXTO_REPETIR, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BOTAO_START)
+                        .addGap(0, 162, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(BOTAO_START)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TEXTO_ARQUIVO)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TEXTO_ARQUIVO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
                     .addComponent(TEXTO_REPETIR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(44, 44, 44)
-                .addComponent(BOTAO_START)
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addComponent(BOTAO_START))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,6 +187,17 @@ public class Janela_Principal extends javax.swing.JFrame {
 
     private void BOTAO_STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOTAO_STARTActionPerformed
         // TODO add your handling code here:
+        if(TEXTO_ARQUIVO.getText().equals("") && TEXTO_REPETIR.getText().equals("")){
+            mostraMensagem("Digite as informações necessárias", "Aviso");
+        }
+        else
+        if(TEXTO_ARQUIVO.getText().equals("")){
+            mostraMensagem("Digite o nome do arquivo a ser executado", "Aviso");
+        }
+        else
+        if(TEXTO_REPETIR.getText().equals("")){
+            mostraMensagem("Digite quantas vezes o programa deve repetir a ação", "Aviso");
+        }
         
         int repeticoes = Integer.parseInt(TEXTO_REPETIR.getText());
         
