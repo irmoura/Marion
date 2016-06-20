@@ -203,17 +203,15 @@ public void Uma_Frase(String p1) throws AWTException{
     }
     else
     if((p1.equals("desligar"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_WINDOWS);
-        bot.keyPress(KeyEvent.VK_R);
-        bot.keyRelease(KeyEvent.VK_R);
-        bot.keyRelease(KeyEvent.VK_WINDOWS);
-        type("shutdown ");
-        bot.keyPress(KeyEvent.VK_MINUS);
-        bot.keyRelease(KeyEvent.VK_MINUS);
-        type("p");
-        bot.keyPress(KeyEvent.VK_ENTER);
-        bot.keyRelease(KeyEvent.VK_ENTER);
+        programa("shutdown -p");
+    }
+    else
+    if((p1.equals("reiniciar"))){
+        programa("shutdown -r -f -t 0");
+    }
+    else
+    if((p1.equals("logoff"))){
+        programa("shutdown -l");
     }
     else
     if((p1.equals("showinputdialog"))){
