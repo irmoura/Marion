@@ -49,25 +49,25 @@ public static void programa(String comando){
 public void uma_Tecla(String t1){
     switch(t1){
         case "backspace":
-            k1 = tecla.backspace;//BACKSPACE
+            k1 = tecla.backspace;
             break;
         case "baixo":
-            k1 = tecla.baixo;//BAIXO
+            k1 = tecla.baixo;
             break;
         case "direita":
-            k1 = tecla.direita;//DIREITA
+            k1 = tecla.direita;
             break;
         case "cima":
-            k1 = 38;//CIMA
+            k1 = tecla.cima;
             break;
         case "esquerda":
-            k1 = 37;//ESQUERDA
+            k1 = tecla.esquerda;
             break;
         case "enter":
-            k1 = tecla.enter;//ENTER
+            k1 = tecla.enter;
             break;
         case "iniciar":
-            k1 = 524;//INICIAR
+            k1 = tecla.iniciar;
             break;
     default:
     }
@@ -79,64 +79,64 @@ public void uma_Tecla(String t1){
 public void duas_Teclas(String t1, String t2){
     switch(t1){
         case "shift":
-            k1 = 16;//SHIFT
+            k1 = tecla.shift;
             break;
         case "control":
-            k1 = 17;//CONTROL
+            k1 = tecla.control;
             break;
         case "iniciar":
-            k1 = 524;//INICIAR
+            k1 = tecla.iniciar;
             break;
     default:
     }
     switch(t2){
         case "-":
-            k2 = 45;//-
+            k2 = tecla.traco;
             break;
         case "1":
-            k2 = 49;//1
+            k2 = tecla.um;
             break;
         case "2":
-            k2 = 50;//2
+            k2 = tecla.dois;
             break;
         case "3":
-            k2 = 51;//3
+            k2 = tecla.tres;
             break;
         case "4":
-            k2 = 52;//4
+            k2 = tecla.quatro;
             break;
         case "5":
-            k2 = 53;//5
+            k2 = tecla.cinco;
             break;
         case "6":
-            k2 = 54;//6
+            k2 = tecla.seis;
             break;
         case "7":
-            k2 = 55;//7
+            k2 = tecla.sete;
             break;
         case "8":
-            k2 = 56;//8
+            k2 = tecla.oito;
             break;
         case "9":
-            k2 = 57;//9
+            k2 = tecla.nove;
             break;
         case "a":
-            k2 = 65;//A
+            k2 = tecla.a;
             break;
         case "b":
-            k2 = 66;//B
+            k2 = tecla.b;
             break;
         case "c":
-            k2 = 67;//C
+            k2 = tecla.c;
             break;
         case "e":
-            k2 = 69;//E
+            k2 = tecla.e;
             break;
         case "r":
-            k2 = 82;//R
+            k2 = tecla.r;
             break;
         case "v":
-            k2 = 86;//V
+            k2 = tecla.v;
             break;
     default:
     }
