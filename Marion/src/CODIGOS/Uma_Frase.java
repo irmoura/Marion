@@ -5,7 +5,6 @@
  */
 package CODIGOS;
 
-import static CODIGOS.Tres_Frases.type;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -26,6 +25,12 @@ import javax.swing.JOptionPane;
  */
 public class Uma_Frase {
     
+public int tempo = 1000;
+
+public int k1, k2;
+
+public static Robot bot;
+    
 public static void programa(String comando){
         try {
             Process p = Runtime.getRuntime().exec ("cmd.exe /c start "+comando);
@@ -40,125 +45,182 @@ public static void programa(String comando){
             Logger.getLogger(Uma_Frase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+public void uma_Tecla(String t1){
+    switch(t1){
+        case "backspace":
+            k1 = 8;//BACKSPACE
+            break;
+        case "baixo":
+            k1 = 40;//BAIXO
+            break;
+        case "direita":
+            k1 = 39;//DIREITA
+            break;
+        case "cima":
+            k1 = 38;//CIMA
+            break;
+        case "esquerda":
+            k1 = 37;//ESQUERDA
+            break;
+        case "enter":
+            k1 = 10;//ENTER
+            break;
+        case "iniciar":
+            k1 = 524;//INICIAR
+            break;
+    default:
+    }
+    bot.keyPress(k1);
+    bot.keyRelease(k1);
+    bot.delay(tempo);
+}
+
+public void duas_Teclas(String t1, String t2){
+    switch(t1){
+        case "shift":
+            k1 = 16;//SHIFT
+            break;
+        case "control":
+            k1 = 17;//CONTROL
+            break;
+        case "iniciar":
+            k1 = 524;//INICIAR
+            break;
+    default:
+    }
+    switch(t2){
+        case "1":
+            k2 = 49;//1
+            break;
+        case "2":
+            k2 = 50;//2
+            break;
+        case "3":
+            k2 = 51;//3
+            break;
+        case "4":
+            k2 = 52;//4
+            break;
+        case "5":
+            k2 = 53;//5
+            break;
+        case "6":
+            k2 = 54;//6
+            break;
+        case "7":
+            k2 = 55;//7
+            break;
+        case "8":
+            k2 = 56;//8
+            break;
+        case "9":
+            k2 = 57;//9
+            break;
+        case "a":
+            k2 = 65;//A
+            break;
+        case "c":
+            k2 = 67;//C
+            break;
+        case "v":
+            k2 = 86;//V
+            break;
+    default:
+    }
+    bot.keyPress(k1);
+    bot.keyPress(k2);
+    bot.keyRelease(k2);
+    bot.keyRelease(k1); 
+    bot.delay(tempo);
+}
+
 public void Uma_Frase(String p1) throws AWTException{
-    if((p1.equals("enter"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_ENTER);
-        bot.keyRelease(KeyEvent.VK_ENTER);
+    
+    bot = new Robot();
+    
+    if((p1.equals("backspace"))){
+        uma_Tecla(p1);
     }
     else
-    if((p1.equals("colar"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_CONTROL);
-        bot.keyPress(KeyEvent.VK_V);
-        bot.keyRelease(KeyEvent.VK_V);
-        bot.keyRelease(KeyEvent.VK_CONTROL); 
+    if((p1.equals("iniciar"))){
+        uma_Tecla(p1);
+    }
+    else
+    if(p1.equals("cima")){
+        uma_Tecla(p1);
+    }
+    else
+    if(p1.equals("baixo")){
+        uma_Tecla(p1);
+    }
+    else
+    if(p1.equals("direita")){
+        uma_Tecla(p1);
+    }
+    else
+    if(p1.equals("esquerda")){
+        uma_Tecla(p1);
+    }
+    else
+    if(p1.equals("enter")){
+        uma_Tecla(p1);
+    }
+    else
+    if(p1.equals("colar")){
+        duas_Teclas("control", "v");
     }
     else
     if((p1.equals("copiar"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_CONTROL);
-        bot.keyPress(KeyEvent.VK_C);
-        bot.keyRelease(KeyEvent.VK_C);
-        bot.keyRelease(KeyEvent.VK_CONTROL); 
-    }
-    else
-    if((p1.equals("direita"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_RIGHT);
-        bot.keyRelease(KeyEvent.VK_RIGHT);
-    }
-    else
-    if((p1.equals("esquerda"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_LEFT);
-        bot.keyRelease(KeyEvent.VK_LEFT);
-    }
-    else
-    if((p1.equals("cima"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_UP);
-        bot.keyRelease(KeyEvent.VK_UP);
-        bot.delay(1000);
-    }
-    else
-    if((p1.equals("baixo"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_DOWN);
-        bot.keyRelease(KeyEvent.VK_DOWN);
+        duas_Teclas("control", "c");
     }
     else
     if((p1.equals("exclamacao"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_1);
-        bot.keyRelease(KeyEvent.VK_1);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
+        duas_Teclas("shift", "1");
     }
     else
     if((p1.equals("arroba"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_2);
-        bot.keyRelease(KeyEvent.VK_2);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
+        duas_Teclas("shift", "2");
     }
     else
     if((p1.equals("cerquilha"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_3);
-        bot.keyRelease(KeyEvent.VK_3);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
+        duas_Teclas("shift", "3");
     }
     else
     if((p1.equals("cifrao")) || (p1.equals("sifrao"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_4);
-        bot.keyRelease(KeyEvent.VK_4);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
+        duas_Teclas("shift", "4");
     }
     else
     if((p1.equals("porcentagem"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_5);
-        bot.keyRelease(KeyEvent.VK_5);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
+        duas_Teclas("shift", "5");
     }
     else
     if((p1.equals("asterisco"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_8);
-        bot.keyRelease(KeyEvent.VK_8);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
+        duas_Teclas("shift", "8");
     }
     else
     if((p1.equals("anderline"))){
-        Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_MINUS);
+        bot.keyPress(KeyEvent.VK_MINUS);//45
         bot.keyRelease(KeyEvent.VK_MINUS);
         bot.keyRelease(KeyEvent.VK_SHIFT); 
+        bot.delay(tempo);
     }
     else
     if((p1.equals("executar"))){
-        Robot bot = new Robot();
         bot.keyPress(KeyEvent.VK_WINDOWS);
         bot.keyPress(KeyEvent.VK_R);
         bot.keyRelease(KeyEvent.VK_R);
         bot.keyRelease(KeyEvent.VK_WINDOWS); 
+        bot.delay(tempo);
     }
     else
     if((p1.equals("explorar"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_WINDOWS);
+        bot.keyPress(KeyEvent.VK_WINDOWS);//524
         bot.keyPress(KeyEvent.VK_E);
         bot.keyRelease(KeyEvent.VK_E);
         bot.keyRelease(KeyEvent.VK_WINDOWS); 
+        bot.delay(tempo);
     }
     else
     if((p1.equals("notepad"))){
@@ -183,19 +245,6 @@ public void Uma_Frase(String p1) throws AWTException{
     else
     if(p1.equals("Taskmgr")){
         programa(p1); 
-    }
-    else
-    if((p1.equals("iniciar"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_WINDOWS);
-        bot.keyRelease(KeyEvent.VK_WINDOWS);
-        bot.delay(1000);
-    }
-    else
-    if((p1.equals("backspace"))){
-        Robot bot = new Robot();
-        bot.keyPress(KeyEvent.VK_BACK_SPACE);
-        bot.keyRelease(KeyEvent.VK_BACK_SPACE);
     }
     else
     if((p1.equals("paint"))){
