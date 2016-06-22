@@ -10,7 +10,6 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +29,7 @@ public int tempo = 1000;
 public int k1, k2;
 
 public static Robot bot;
+public static Teclas tecla;
     
 public static void programa(String comando){
         try {
@@ -49,13 +49,13 @@ public static void programa(String comando){
 public void uma_Tecla(String t1){
     switch(t1){
         case "backspace":
-            k1 = 8;//BACKSPACE
+            k1 = tecla.backspace;//BACKSPACE
             break;
         case "baixo":
-            k1 = 40;//BAIXO
+            k1 = tecla.baixo;//BAIXO
             break;
         case "direita":
-            k1 = 39;//DIREITA
+            k1 = tecla.direita;//DIREITA
             break;
         case "cima":
             k1 = 38;//CIMA
@@ -64,7 +64,7 @@ public void uma_Tecla(String t1){
             k1 = 37;//ESQUERDA
             break;
         case "enter":
-            k1 = 10;//ENTER
+            k1 = tecla.enter;//ENTER
             break;
         case "iniciar":
             k1 = 524;//INICIAR
@@ -90,6 +90,9 @@ public void duas_Teclas(String t1, String t2){
     default:
     }
     switch(t2){
+        case "-":
+            k2 = 45;//-
+            break;
         case "1":
             k2 = 49;//1
             break;
@@ -120,8 +123,17 @@ public void duas_Teclas(String t1, String t2){
         case "a":
             k2 = 65;//A
             break;
+        case "b":
+            k2 = 66;//B
+            break;
         case "c":
             k2 = 67;//C
+            break;
+        case "e":
+            k2 = 69;//E
+            break;
+        case "r":
+            k2 = 82;//R
             break;
         case "v":
             k2 = 86;//V
@@ -138,6 +150,7 @@ public void duas_Teclas(String t1, String t2){
 public void Uma_Frase(String p1) throws AWTException{
     
     bot = new Robot();
+    tecla = new Teclas();
     
     if((p1.equals("backspace"))){
         uma_Tecla(p1);
@@ -200,27 +213,15 @@ public void Uma_Frase(String p1) throws AWTException{
     }
     else
     if((p1.equals("anderline"))){
-        bot.keyPress(KeyEvent.VK_SHIFT);
-        bot.keyPress(KeyEvent.VK_MINUS);//45
-        bot.keyRelease(KeyEvent.VK_MINUS);
-        bot.keyRelease(KeyEvent.VK_SHIFT); 
-        bot.delay(tempo);
+        duas_Teclas("shift", "-");
     }
     else
     if((p1.equals("executar"))){
-        bot.keyPress(KeyEvent.VK_WINDOWS);
-        bot.keyPress(KeyEvent.VK_R);
-        bot.keyRelease(KeyEvent.VK_R);
-        bot.keyRelease(KeyEvent.VK_WINDOWS); 
-        bot.delay(tempo);
+        duas_Teclas("iniciar", "r");
     }
     else
     if((p1.equals("explorar"))){
-        bot.keyPress(KeyEvent.VK_WINDOWS);//524
-        bot.keyPress(KeyEvent.VK_E);
-        bot.keyRelease(KeyEvent.VK_E);
-        bot.keyRelease(KeyEvent.VK_WINDOWS); 
-        bot.delay(tempo);
+        duas_Teclas("iniciar", "e");
     }
     else
     if((p1.equals("notepad"))){
@@ -247,7 +248,7 @@ public void Uma_Frase(String p1) throws AWTException{
         programa(p1); 
     }
     else
-    if((p1.equals("paint"))){
+    if((p1.equals("paint")) || (p1.equals("mspaint"))){
         programa("mspaint");
     }
     else
