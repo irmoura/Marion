@@ -14,11 +14,13 @@ public class Teclas {
     public int shift = 16;
     public int control = 17;
     public int enter = 10;
+    public int espaco = 32;
     public int esquerda = 37;
     public int cima = 38;
     public int direita = 39;
     public int baixo = 40;
     public int traco = 45;
+    public int zero = 48;
     public int um = 49;
     public int dois = 50;
     public int tres = 51;

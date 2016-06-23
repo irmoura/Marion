@@ -10,6 +10,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,6 +72,7 @@ public void uma_Tecla(String t1){
             break;
     default:
     }
+    //bot.keyPress(KeyEvent.VK_ENTER);
     bot.keyPress(k1);
     bot.keyRelease(k1);
     bot.delay(tempo);

@@ -6,6 +6,9 @@
 package CODIGOS;
 
 import java.awt.AWTException;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -130,6 +133,11 @@ public class Janela_Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marion - By Ismael Ribeiro");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel2.setText("Arquivo");
 
@@ -255,6 +263,24 @@ public class Janela_Principal extends javax.swing.JFrame {
         }//FOR
         
     }//GEN-LAST:event_BOTAO_STARTActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+        KeyboardFocusManager.getCurrentKeyboardFocusManager()
+            .addKeyEventDispatcher(new KeyEventDispatcher() {
+                @Override
+                public boolean dispatchKeyEvent(KeyEvent event) {
+                    if(event.getID() == KeyEvent.KEY_RELEASED 
+                       && event.getKeyCode() == KeyEvent.VK_ENTER){
+                        BOTAO_STARTActionPerformed(null);
+                           return true;
+                     }
+                     return false;
+                }
+        }); 
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
