@@ -6,8 +6,6 @@
 package CODIGOS;
 
 import java.awt.AWTException;
-import java.awt.Color;
-import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.MouseInfo;
@@ -20,7 +18,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -143,6 +140,7 @@ public class Janela_Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marion - By Ismael Ribeiro");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -164,7 +162,7 @@ public class Janela_Principal extends javax.swing.JFrame {
             }
         });
 
-        POSICAO_DO_MOUSE.setText("MOUSE");
+        POSICAO_DO_MOUSE.setText("Posição do mouse X: 0000 Y: 0000");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,12 +178,13 @@ public class Janela_Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TEXTO_REPETIR, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(POSICAO_DO_MOUSE)
-                            .addComponent(BOTAO_START))
-                        .addGap(0, 162, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TEXTO_REPETIR, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BOTAO_START)))
+                        .addGap(0, 160, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -200,9 +199,9 @@ public class Janela_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(TEXTO_REPETIR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BOTAO_START))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(POSICAO_DO_MOUSE)
-                .addGap(53, 53, 53))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
@@ -294,7 +293,7 @@ public class Janela_Principal extends javax.swing.JFrame {
                 
                 String posicao_do_mouse = "X: "+MouseInfo.getPointerInfo().getLocation().x+" Y: "+MouseInfo.getPointerInfo().getLocation().y;
                 
-                POSICAO_DO_MOUSE.setText("Posição do mouse: "+posicao_do_mouse);
+                POSICAO_DO_MOUSE.setText("Posição do mouse "+posicao_do_mouse);
                 
             }
         });
