@@ -11,9 +11,10 @@ package CODIGOS;
  */
 public class Teclas {
     public int backspace = 8;
+    public int enter = 10;
     public int shift = 16;
     public int control = 17;
-    public int enter = 10;
+    public int capslock = 20;
     public int espaco = 32;
     public int esquerda = 37;
     public int cima = 38;
@@ -56,5 +57,19 @@ public class Teclas {
     public int x = 88;
     public int y = 89;
     public int z = 90;
+    public int f1 = 112;
+    public int f2 = 113;
+    public int f3 = 114;
+    public int f4 = 115;
+    public int f5 = 116;
+    public int f6 = 117;
+    public int f7 = 118;
+    public int f8 = 119;
+    public int f9 = 120;
+    public int f10 = 121;
+    public int f11 = 122;
+    public int f12 = 123;
+    public int numlock = 144;
+    public int printscreen = 154;
     public int iniciar = 524;
 }
