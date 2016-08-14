@@ -165,6 +165,10 @@ public void Uma_Frase(String p1) throws AWTException{
         uma_Tecla(p1);
     }
     else
+    if((p1.equals("tab"))){
+        uma_Tecla(p1);
+    }
+    else
     if(p1.equals("cima")){
         uma_Tecla(p1);
     }
