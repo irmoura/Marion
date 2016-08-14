@@ -72,4 +72,5 @@ public class Teclas {
     public int numlock = 144;
     public int printscreen = 154;
     public int iniciar = 524;
+    public int tab = 9;
 }

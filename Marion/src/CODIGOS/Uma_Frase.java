@@ -70,6 +70,9 @@ public void uma_Tecla(String t1){
         case "iniciar":
             k1 = tecla.iniciar;
             break;
+        case "tab":
+            k1 = tecla.tab;
+            break;
     default:
     }
     //bot.keyPress(KeyEvent.VK_ENTER);
