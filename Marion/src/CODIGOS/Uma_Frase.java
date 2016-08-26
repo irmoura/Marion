@@ -181,6 +181,30 @@ public void Uma_Frase(String p1) throws AWTException{
     bot = new Robot();
     tecla = new Teclas();
     
+    if((p1.equals("f1"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f2"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f3"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f4"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f5"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f6"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f7"))){
+        uma_Tecla(p1);
+    }
+    if((p1.equals("f8"))){
+        uma_Tecla(p1);
+    }
     if((p1.equals("backspace"))){
         uma_Tecla(p1);
     }

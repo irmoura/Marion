@@ -89,7 +89,7 @@ public class Janela_Principal extends javax.swing.JFrame {
     
     if(!arq.exists() && !arquivo.equals("")){
         mostraMensagem("O arquivo "+arquivo+" não existe na unidade "+letra, "Aviso");
-        System.exit(0);
+//        System.exit(0);
     }
     
     //==========================================================================
