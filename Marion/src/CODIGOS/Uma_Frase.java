@@ -49,6 +49,30 @@ public static void programa(String comando){
 
 public void uma_Tecla(String t1){
     switch(t1){
+        case "f1":
+            k1 = tecla.f1;
+            break;
+        case "f2":
+            k1 = tecla.f2;
+            break;
+        case "f3":
+            k1 = tecla.f3;
+            break;
+        case "f4":
+            k1 = tecla.f4;
+            break;
+        case "f5":
+            k1 = tecla.f5;
+            break;
+        case "f6":
+            k1 = tecla.f6;
+            break;
+        case "f7":
+            k1 = tecla.f7;
+            break;
+        case "f8":
+            k1 = tecla.f8;
+            break;
         case "backspace":
             k1 = tecla.backspace;
             break;
